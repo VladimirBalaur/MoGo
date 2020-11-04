@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Vladimir Balaur">
+    <title>MoGo - Welcome </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="JS/script.js"></script>
+    <link rel="stylesheet" href="css/all.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script>
+        /*Animation jquery code */
+        $(function() {
+            var $animation_elements = $('.animation-element');
+            var $window = $(window);
+
+            function check_if_in_view() {
+                var window_height = $window.height();
+                var window_top_position = $window.scrollTop();
+                var window_bottom_position = (window_top_position + window_height);
+
+                $.each($animation_elements, function() {
+                    var $element = $(this);
+                    var element_height = $element.outerHeight();
+                    var element_top_position = $element.offset().top;
+                    var element_bottom_position = (element_top_position + element_height);
+
+                    //check to see if this current container is within viewport
+                    if ((element_bottom_position >= window_top_position) &&
+                        (element_top_position <= window_bottom_position)) {
+                        $element.addClass('in-view');
+                    } else {
+                        $element.removeClass('in-view');
+                    }
+                });
+            }
+
+            $window.on('scroll resize', check_if_in_view);
+            $window.trigger('scroll');
+        });
+
+        /*SLIDER SECTION FUNCTIONS */
+        function show_upper_line(el) {
+            el.pseudoStyle("before", "visibility", "visible !important");
+        }
+
+        function hide_upper_line(el) {
+            el.pseudoStyle("before", "visibility", "hidden !important");
+            el.className = "";
+        }
+
+        /*SIDEBAR FUNCTIONS */
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" style="font-weight: bold;" class="closebtn" onclick="closeNav()">×</a>
+            <a id="logo">MoGo</a>
+            <a href="#about">About</a>
+            <a href="#service">Service</a>
+            <a href="#work">Work</a>
+            <a href="#stories">Blog</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+        <nav>
+            <a id="logo">MoGo</a>
+            <a href="#about">About</a>
+            <a href="#service">Service</a>
+            <a href="#work">Work</a>
+            <a href="#stories">Blog</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+        <div id="burger" onclick="openNav()">☰</div>
+
+        <div class="header-text-container">
+            <h2>Creative Template</h2>
+            <h1>welcome to mogo</h1>
+
+            <hr>
+
+            <a href="" id="learn_more_btn">Learn more</a>
+        </div>
+
+        <div class="slider">
+            <div onmouseover="show_upper_line(this)" onmouseleave="hide_upper_line(this)">01 INTRO</div>
+            <div onmouseover="show_upper_line(this)" onmouseleave="hide_upper_line(this)">02 WORK</div>
+            <div onmouseover="show_upper_line(this)" onmouseleave="hide_upper_line(this)">03 ABOUT</div>
+            <div onmouseover="show_upper_line(this)" onmouseleave="hide_upper_line(this)"> 04 CONTACTS</div>
+        </div>
+    </header>
+
+    <section id="about">
+
+        <div class="center">
+            <h4>What we do</h4>
+            <h3>story about us</h3>
+
+            <hr class="red">
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio inventore praesentium mollitia fugit laborum consequuntur, consequatur dolorem eveniet minus nesciunt nam harum maxime vero perferendis, quibusdam voluptatibus accusantium. Ratione,
+                alias!Eos, at nostrum sequi obcaecati saepe laborum tempora incidunt dignissimos eius possimus minus architecto atque molestiae repellendus minima quod eligendi necessitatibus perferendis ipsum consequuntur repellat mollitia facere placeat?
+                Quo, debitis!</p>
+            <div class="services animation-element slide-bottom">
+                <div id="servpic-1">
+                    <div class="img-overlay-1">
+                        <img src="images/super-team-icon.png" alt="our team">
+                        <p>super team</p>
+
+                    </div>
+                </div>
+                <div id="servpic-2">
+                    <div class="img-overlay-2">
+                        <img src="images/super-team-icon.png" alt="our team">
+                        <p>Best tools</p>
+                    </div>
+                </div>
+                <div id="servpic-3">
+                    <div class="img-overlay-3">
+                        <img src="images/super-team-icon.png" alt="our team">
+                        <p>Well-made projects for our customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pe viitor:
+ overlay-urile asupra imaginilor vor fi incluse in blocuri aparte, ulterior prin jquery on-hover, ele
+vor fi setate ca vizibile-->
+
+        <div class="facts">
+            <div>
+                <h1> <span class="count">42</span></h1>
+                <p>Web design projects</p>
+            </div>
+            <div>
+                <h1><span class="count">123</span></h1>
+                <p>happy clients</p>
+            </div>
+            <div>
+                <h1><span class="count">15</span></h1>
+                <p>awards winner</p>
+            </div>
+            <div>
+                <h1><span class="count">99</span></h1>
+                <p>cups of coffee</p>
+            </div>
+            <div>
+                <h1><span class="count">24</span></h1>
+                <p>members</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <h4>We work with</h4>
+        <h3>amazing services</h3>
+        <hr class="red">
+
+        <div class="animation-element slide-left" id="services-container">
+            <div>
+                <img src="images/line-graph-icon.png" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe odio. </p>
+                </div>
+            </div>
+            <div>
+                <img src="images/line-graph-icon.png" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe odio. </p>
+                </div>
+            </div>
+            <div>
+                <img src="images/line-graph-icon.png" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe odio. </p>
+                </div>
+            </div>
+        </div>
+        <hr style="width:75%;color:white;margin:25px auto;">
+        <div id="services-container" class="animation-element slide-left">
+
+            <div>
+                <img src="images/line-graph-icon.png" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe
+                    </p>
+                </div>
+            </div>
+            <div>
+                <img src="images/line-graph-icon.png" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe
+                    </p>
+                </div>
+            </div>
+            <div>
+                <img src="images/line-graph-icon.png" id="iphone" alt="">
+
+                <div>
+                    <h6>web design</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non fuga ducimus neque sint, quod saepe
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="unique-design" id="work">
+        <h4>For all devices</h4>
+        <h3>Unique design</h3>
+        <hr class="red">
+
+        <img src="images/tablet.png" id="tablet" alt="responsive website for tablet">
+        <img src="images/iphone-img.png" id="iphone" alt="responsive website for phones">
+
+    </section>
+    <section class="service">
+        <div class="center">
+            <h4>Service</h4>
+            <h3>What we do</h3>
+            <hr class="red">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, deserunt dignissimos. Eos voluptate non voluptatum optio fugiat odio atque dicta eaque, ratione neque et dolores debitis id iusto aliquid distinctio? Culpa, nam natus. Iste
+                quos nesciunt fuga reiciendis ea corrupti deleniti deserunt iusto odio quod! Minima, eum libero? Exercitationem, quos. Nemo pariatur est saepe consectetur ipsum veritatis totam, accusamus rem. Dignissimos harum eveniet exercitationem nulla,
+                ti!
+            </p>
+
+            <div id="our-services">
+                <img src="images/services-designer.png" alt="designer">
+
+                <div class="accordion">
+                    <div class="item">
+                        <div class="item-description" onclick="hide_content(this,180)">
+                            <img src="images/photograpjy-icons.png" alt="item pic">
+                            <span>photography</span>
+                            <img id="toggle" src="images/arrow-toggle.png" alt="toggle element">
+                        </div>
+                        <div class="content" style="height: 0;">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-description" onclick="hide_content(this,180)">
+                            <img src="images/equalizer.png" alt="item pic">
+                            <span>Creativity</span>
+                            <img id="toggle" src="images/arrow-toggle.png" alt="toggle element">
+                        </div>
+                        <div class="content" style="height: 0;">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-description" onclick="hide_content(this,180)">
+                            <img src="images/web-design.png" alt="item pic">
+                            <span>Web Design</span>
+                            <img id="toggle" src="images/arrow-toggle.png" alt="toggle element">
+                        </div>
+                        <div class="content" style="height: 0;">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="our-team">
+        <h4>Who we are</h4>
+        <h3>meet our team</h3>
+        <hr class="red">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="center">
+            <div class="person-container">
+
+                <div class="person_1">
+                    <div class="person-overlay">
+                        <div class="social-media-links">
+                            <a class="ig"><i class="fab fa-instagram"></i></a>
+                            <a class="fb"><i class="fab fa-facebook-f"></i></a>
+                            <a class="pt"><i class="fab fa-pinterest-square"></i>                        </a>
+                            <a class="twt"><i class="fab fa-twitter"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="person-description">
+                        <p class="person-name">matthew dix</p>
+                        <p class="role">Graphic designer</p>
+                    </div>
+                </div>
+
+                <div class="person_2">
+                    <div class="person-overlay">
+                        <div class="social-media-links">
+                            <a class="ig"><i class="fab fa-instagram"></i></a>
+                            <a class="fb"><i class="fab fa-facebook-f"></i></a>
+                            <a class="pt"><i class="fab fa-pinterest-square"></i>
+                        <a class="twt"><i class="fab fa-twitter"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="person-description">
+                        <p class="person-name">christopher campbell</p>
+                        <p class="role">Branding/ UX designer</p>
+                    </div>
+                </div>
+                <div class="person_3">
+                    <div class="person-overlay">
+                        <div class="social-media-links">
+                            <a class="ig"><i class="fab fa-instagram"></i></a>
+                            <a class="fb"><i class="fab fa-facebook-f"></i></a>
+                            <a class="pt"><i class="fab fa-pinterest-square"></i>
+                        <a class="twt"><i class="fab fa-twitter"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="person-description">
+                        <p class="person-name">Michael Fertig</p>
+                        <p class="role">Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="brands">
+        <img src="images/brands.png" alt="">
+
+    </section>
+
+    <section id="opinions">
+        <h4>Happy Clients</h4>
+        <h3>What people say</h3>
+        <hr class="red">
+
+        <div class="comments-container">
+            <div class="comment">
+                <img src="images/matthew-dix.png" alt="" class="comment-image">
+                <div class="comment-content">
+                    <h1>matthew dix</h1>
+                    <h2>graphic design</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <img src="images/castillo.png" alt="" class="comment-image">
+                <div class="comment-content">
+                    <h1>John Carvounis</h1>
+                    <h2>graphic design</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <img src="images/karvounis.png" alt="" class="comment-image">
+                <div class="comment-content">
+                    <h1>Dereck Maverick</h1>
+                    <h2>graphic design</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <img src="images/petrucci.png" alt="" class="comment-image">
+                <div class="comment-content">
+                    <h1>Carl Hotkinson</h1>
+                    <h2>graphic design</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- <section id="our-work">
+
+        <h4>What we do</h4>
+        <h3>Some of our work</h3>
+        <hr class="red">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="images/gallery-item-1.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-item-2.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item wrap">
+                <img src="images/gallery-item-3.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-item-4.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-item-5.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-item-6.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-item-7.png" alt="">
+                <div class="gallery-item-overlay">
+                    <i class="fas fa-image"></i>
+                    <h1>creatively design</h1>
+                    <p>some content here</p>
+                </div>
+            </div>
+        </div>
+
+    </section> -->
+    <!-- 
+    <div class="gallery-work-container">
+        <div class="gallery-item">
+            <img src="images/gallery-item-1.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-item-2.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item" id="wrapper">
+            <img src="images/gallery-item-3.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-item-4.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-item-5.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-item-6.png">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-item-2.png" alt="">
+            <div class="gallery-item-overlay">
+                <i class="fas fa-image"></i>
+                <h1>creatively design</h1>
+                <p>some content here</p>
+            </div>
+        </div>
+    </div> -->
+    <section id="stories">
+        <h4>Our stories</h4>
+        <h3>latest blog</h3>
+        <hr class="red">
+
+        <div class="stories-container">
+            <div class="story">
+                <div class="story-image">
+                    <img src="images/story-1.png" alt="">
+                    <div class="date">
+                        <span class="day">14</span>
+                        <span class="month">Jan</span>
+                    </div>
+                </div>
+                <div class="story-description">
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr>
+                    <div class="counters">
+                        <div class="views-counter">
+                            <i class="fas fa-eye"></i> 542
+                        </div>
+                        <div class="comments-counter">
+                            <i class="fas fa-comment"></i> 17
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="story">
+                <div class="story-image">
+                    <img src="images/story-3.png" alt="">
+                    <div class="date">
+                        <span class="day">14</span>
+                        <span class="month">Jan</span>
+                    </div>
+                </div>
+                <div class="story-description">
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr>
+                    <div class="counters">
+                        <div class="views-counter">
+                            <i class="fas fa-eye"></i> 542
+                        </div>
+                        <div class="comments-counter">
+                            <i class="fas fa-comment"></i> 17
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="story">
+                <div class="story-image">
+                    <img src="images/story-2.png" alt="">
+                    <div class="date">
+                        <span class="day">10</span>
+                        <span class="month">Jan</span>
+                    </div>
+                </div>
+                <div class="story-description">
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr>
+                    <div class="counters">
+                        <div class="views-counter">
+                            <i class="fas fa-eye"></i> 542
+                        </div>
+                        <div class="comments-counter">
+                            <i class="fas fa-comment"></i> 17
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer id="contact">
+        <div class="mogo">
+            <h1>MoGo</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            <span> <b>15k </b> followers</span>
+            <div class="media-links-container">
+                <p>follow us:</p>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"> <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#"> <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#"> <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="#"> <i class="fab fa-google-plus-g"></i>
+                </a>
+                <a href="#"> <i class="fab fa-youtube"></i>
+                </a>
+
+            </div>
+            <form action="#" method="POST">
+                <input type="email" placeholder="Your Email..." name="newsletter" id="">
+                <input type="submit" value="subscribe">
+            </form>
+        </div>
+        <div class="blogs">
+            <h1>blogs</h1>
+            <div class="blog-post">
+                <img src="images/blog-post-image-1.png" alt="">
+                <div>
+                    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+                    <div class="date">Jan 9, 2019</div>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="images/blog-post-image-2.png" alt="">
+                <div>
+                    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+                    <div class="date">Jan 9, 2019</div>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="images/blog-post-image-3.png" alt="">
+                <div>
+                    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+                    <div class="date">Jan 9, 2019</div>
+                </div>
+            </div>
+        </div>
+        <div class="instagram">
+            <h1>instagram</h1>
+            <div class="ig-post-container">
+                <img src="images/ig-post-1.png" alt="">
+                <img src="images/ig-post-2.png" alt="">
+                <img src="images/ig-post-3.png" alt="">
+                <img src="images/ig-post-4.png" alt="">
+                <img src="images/ig-post-5.png" alt="">
+                <img src="images/ig-post-6.png" alt="">
+                <img src="images/ig-post-7.png" alt="">
+                <img src="images/ig-post-8.png" alt="">
+                <img src="images/ig-post-9.png" alt="">
+            </div>
+            <p><a href="">View more photos</a></p>
+        </div>
+    </footer>
+    <!-- <div class="copyright">
+
+
+        <hr> &copy; Vladimir Balaur, W-1731
+
+    </div> -->
+</body>
+<script>
+    /*Accordion */
+    function hide_content(obj, span_height) {
+        var content = obj.parentNode.querySelector('div.content');
+        var toggle_image = obj.parentNode.querySelector('div.item img#toggle');
+
+        if ((content.style.height === '0px')) {
+
+            content.style.height = String(span_height) + 'px';
+            toggle_image.style.transform = "rotate(180deg)"
+            content.style.padding = "20px";
+            content.style.borderBottom = "1px solid lightgray";
+
+
+        } else if (content.style.height !== '0px' || content.style.height !== null) {
+
+            content.style.height = '0px';
+            toggle_image.style.transform = "rotate(90deg)";
+            content.style.padding = "0";
+            content.style.borderBottom = "none";
+
+
+
+        }
+    }
+</script>
+
+</html>
